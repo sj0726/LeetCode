@@ -1,3 +1,3 @@
-x = [0, 1, 2]
-
-print(x[1:].pop(1))
+x = [(1, 2)]
+left, right = x.pop()
+print(left, right)

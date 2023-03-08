@@ -14,12 +14,18 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
-        for i in digits:
-            print(Solution.letterMapping[i])
+        if digits == "":
+            return []
+        
+        answers = Solution().letterMapping[digits[0]]
+        if len(digits) == 1:
+            return answers
+        
+        # if it's more than 1 long
+        for i in digits[1:]:
+            answers = [x + y for x in answers for y in Solution().letterMapping[i]]
+        
+        return answers
+        
 
-
-def main():
-    Solution.letterCombinations("??", "23")
-
-if __name__ == "__main__":
-    main()
+print(Solution().letterCombinations("3429"))
